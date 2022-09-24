@@ -11,9 +11,10 @@ DWORD WINAPI NoFlash(LPVOID lp) {
 	}
 	while (true) {
 		if (noflash) {
-			*(DWORD*)(localplayer + m_flFlashDuration) = 0.0f;
+			*(float*)(localplayer + m_flFlashDuration) = 0.0f;
+			Sleep(1);
 		}
 		Sleep(1);
 	}
-	Sleep(1);
+	Sleep(10);
 }

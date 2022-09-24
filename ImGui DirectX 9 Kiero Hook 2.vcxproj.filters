@@ -66,6 +66,12 @@
     <ClCompile Include="noflash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="glowesp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="triggerbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kiero\minhook\src\buffer.h">
@@ -133,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="noflash.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glowesp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="triggerbot.h">
+      <Filter>imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

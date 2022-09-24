@@ -138,6 +138,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bhop.cpp" />
+    <ClCompile Include="glowesp.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -152,9 +153,11 @@
     <ClCompile Include="kiero\minhook\src\trampoline.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="noflash.cpp" />
+    <ClCompile Include="triggerbot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bhop.h" />
+    <ClInclude Include="glowesp.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx9.h" />
@@ -176,6 +179,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="noflash.h" />
     <ClInclude Include="offsets.h" />
+    <ClInclude Include="triggerbot.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kiero\minhook\dll_resources\MinHook.def" />

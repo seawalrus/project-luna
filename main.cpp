@@ -1,6 +1,8 @@
 #include "includes.h"
 #include "bhop.h"
 #include "noflash.h"
+#include "glowesp.h"
+#include "triggerbot.h"
 #ifdef _WIN64
 #define GWL_WNDPROC GWLP_WNDPROC
 #endif
@@ -22,6 +24,8 @@ void InitImGui(LPDIRECT3DDEVICE9 pDevice)
 bool init = false;
 bool bhop = false;
 bool noflash = false;
+bool glowesp = false;
+bool triggerbot = false;
 //custom
 bool showWindow = true;
 int screenx = GetSystemMetrics(SM_CXSCREEN);
@@ -47,6 +51,8 @@ long __stdcall hkEndScene(LPDIRECT3DDEVICE9 pDevice)
 		ImGui::Begin("Luna Project..");
 		ImGui::Checkbox("Bhop", &bhop);
 		ImGui::Checkbox("NoFlash", &noflash);
+		ImGui::Checkbox("GlowEsp", &glowesp);
+		ImGui::Checkbox("TriggerBot", &triggerbot);
 		ImGui::End();
 		
 	}
@@ -101,27 +107,7 @@ DWORD WINAPI MainThread(LPVOID lpReserved)
 	} while (!attached);
 	return TRUE;
 }
-/* THIS FILE NOW LIVES IN bhop.cpp & bhop.h
-DWORD WINAPI BunnyHop(LPVOID lp) {
-	DWORD gameModule = (DWORD)GetModuleHandle("client.dll");
-	DWORD localplayer = *(DWORD*)(gameModule + signatures::dwLocalPlayer);
-	while (localplayer == NULL) {
-		localplayer = *(DWORD*)(gameModule + signatures::dwLocalPlayer);
-	}
-	while (true) {
-		if (bhop) {
-			DWORD flag = *(BYTE*)(localplayer + netvars::m_fFlags);
-			if (GetAsyncKeyState(VK_RETURN)) {
-				if (GetAsyncKeyState(VK_RETURN) && flag & (1 << 0)) {
-					*(DWORD*)(gameModule + signatures::dwForceJump) = 6;
-				}
-			}
-		}
-	}
-	Sleep(1);
-	return 0;
-}
-*/
+
 BOOL WINAPI DllMain(HMODULE hMod, DWORD dwReason, LPVOID lpReserved)
 {
 	switch (dwReason)
@@ -131,10 +117,14 @@ BOOL WINAPI DllMain(HMODULE hMod, DWORD dwReason, LPVOID lpReserved)
 		CreateThread(nullptr, 0, MainThread, hMod, 0, nullptr);
 		CreateThread(nullptr, 0, BunnyHop, hMod, 0, nullptr);
 		CreateThread(nullptr, 0, NoFlash, hMod, 0, nullptr);
+		CreateThread(nullptr, 0, GlowEsp, hMod, 0, nullptr); // not working
+		CreateThread(nullptr, 0, Triggerbot , hMod, 0, nullptr);
 		break;
 	case DLL_PROCESS_DETACH:
 		kiero::shutdown();
 		break;
+		//add shutdown function to all hack threads because this shit is retarded atm
 	}
 	return TRUE;
+	
 }

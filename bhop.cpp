@@ -13,15 +13,15 @@ DWORD WINAPI BunnyHop(LPVOID lp) {
 	while (true) {
 		if (bhop) {
 			DWORD flag = *(BYTE*)(localplayer + netvars::m_fFlags);
-			
 				if (GetAsyncKeyState(VK_RETURN) && flag & (1 << 0)) {
 					*(DWORD*)(gameModule + signatures::dwForceJump) = 6;
-					
 					Sleep(1);
 				}
+				//delete(&flag); //prevent potential memory leak
 				Sleep(1);
 		}
 	}
-	Sleep(1);
+	Sleep(100);
+	
 	return 0;
 }
