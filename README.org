@@ -1,0 +1,7 @@
+#	A poorly developed cheat for counterstrike global offensive
+- Features
+ - Bunny hop
+ - Glow esp 
+ - Anti flashbang
+ - trigger bot
+I will likely continue developement in the form of refectoring and or adding new features albeit It does not remain my number 1 priority
