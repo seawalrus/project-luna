@@ -1,4 +1,4 @@
-#	A poorly developed cheat for counterstrike global offensive
+*	A poorly developed cheat for counterstrike global offensive
 - Features
  - Bunny hop
  - Glow esp 
